@@ -4,8 +4,8 @@
   "description": "It renders any json to a specified template.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "NODE_ENV=test node_modules/.bin/jest **.spec.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,12 @@
   "homepage": "https://github.com/alvarium/j13r#readme",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3",
+    "superagent": "^3.8.2",
+    "supertest": "^3.0.0"
   }
 }
