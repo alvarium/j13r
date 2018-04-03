@@ -18,7 +18,7 @@
     "microservice"
   ],
   "author": "Genar <genar@alvarium.io>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alvarium/j13r/issues"
   },
