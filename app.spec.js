@@ -8,10 +8,20 @@ describe('Test app', () => {
       done()
     })
   })
-  test('Should get Remote API json object and render provided template', (done) => {
-    const url = 'https://jsonplaceholder.typicode.com/posts'
-    const testUrl = `/?url=${encodeURI(url)}`
+
+  const url = 'https://jsonplaceholder.typicode.com/posts'
+  const testUrl = `/?url=${encodeURI(url)}`
+
+  test('Should fail if no template has been specified', (done) => {
     request(app).get(testUrl).then((response) => {
+      expect(response.statusCode).toBe(400)
+      done()
+    })
+  })
+
+  test('Should get Remote API json object and render provided template', (done) => {
+    const testUrlWithTemplate = testUrl + '&template=test-template'
+    request(app).get(testUrlWithTemplate).then((response) => {
       expect(response.statusCode).toBe(200)
       done()
     })
