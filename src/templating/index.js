@@ -1,4 +1,5 @@
 const fs = require('fs')
+const nunjucks = require('nunjucks')
 
 const baseDir = __dirname + '/../../templates'
 
@@ -14,4 +15,8 @@ module.exports.loadTemplate = (templateName) => {
   })
 
   return template
+}
+
+module.exports.renderTemplate = (template, vars) => {
+  return nunjucks.renderString(template, vars)
 }
