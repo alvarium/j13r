@@ -1,9 +1,13 @@
 var express = require('express')
 var app = express()
 
-// respond with "hello world" when a GET request is made to the homepage
+// Handle rendering calls
 app.get('/', function (req, res) {
-  res.send('hello j13r')
+  if (!req.query.url) {
+    return res.status(400).send('You must provide a url')
+  }
+
+  return res.send('hello j13r')
 })
 
 module.exports = app
