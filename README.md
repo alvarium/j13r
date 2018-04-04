@@ -6,6 +6,12 @@ JSON to whatever (j13r)
 
 It renders any json to a specified template.
 
+## Cli usage
+
+```bash
+./cli.js --url http://whatever.com/posts.json --template path/to/template
+```
+
 ## Licence
 
 MIT
