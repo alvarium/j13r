@@ -13,9 +13,15 @@ app.get('/', function (req, res) {
     template: req.query.template
   }
 
-  const renderedTemplate = json2template(params)
+  json2template(params, (err, renderedTemplate) => {
+    if (err) {
+      console.log(err)
+      return res.status(500).send(err)
+    }
 
-  return res.send(renderedTemplate)
+    return res.send(renderedTemplate)
+  })
+
 })
 
 module.exports = app

@@ -2,4 +2,10 @@
 const argv = require('yargs').argv
 const json2template = require('./src/json2template').json2template
 
-json2template(argv)
+json2template(argv, (err, result) => {
+  if (err) {
+    console.error(err)
+  }
+
+  console.info(result)
+})

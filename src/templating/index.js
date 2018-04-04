@@ -4,7 +4,7 @@ const nunjucks = require('nunjucks')
 const baseDir = __dirname + '/../../templates'
 
 const loadTemplate = (templateName) => {
-  let templateContents
+  let templateContents = ''
 
   if (fs.existsSync(templateName)) {
     templateContents = fs.readFileSync(templateName, 'utf8')
