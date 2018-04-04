@@ -28,6 +28,7 @@
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "nunjucks": "^3.1.2",
+    "nunjucks-date-filter": "^0.1.1",
     "yargs": "^11.0.0"
   },
   "devDependencies": {

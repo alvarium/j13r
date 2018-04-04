@@ -2739,6 +2739,10 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
+moment@^2.9.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.0.tgz#7921ade01017dd45186e7fee5f424f0b8663a730"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -2841,6 +2845,12 @@ npmlog@^4.0.2:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+
+nunjucks-date-filter@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/nunjucks-date-filter/-/nunjucks-date-filter-0.1.1.tgz#a936d44d2cc9898d95c6ab7b2aba7084fa60aba6"
+  dependencies:
+    moment "^2.9.0"
 
 nunjucks@^3.1.2:
   version "3.1.2"

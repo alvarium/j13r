@@ -1,13 +1,19 @@
 const fs = require('fs')
 const nunjucks = require('nunjucks')
+const dateFilter = require('nunjucks-date-filter')
+const env = new nunjucks.Environment()
+
+env.addFilter('date', dateFilter)
 
 const baseDir = __dirname + '/../../templates'
 
-const loadTemplate = (templateName) => {
+const loadTemplate = (templateName, secure = true) => {
   let templateContents = ''
 
-  if (fs.existsSync(templateName)) {
-    templateContents = fs.readFileSync(templateName, 'utf8')
+  if (!secure) {
+    if (fs.existsSync(templateName)) {
+      templateContents = fs.readFileSync(templateName, 'utf8')
+    }
   }
 
   if (!templateContents && fs.existsSync(baseDir + '/' + templateName)) {
@@ -23,12 +29,12 @@ const loadTemplate = (templateName) => {
 module.exports.loadTemplate = loadTemplate
 
 const renderTemplate = (template, vars) => {
-  return nunjucks.renderString(template, vars)
+  return env.renderString(template, vars)
 }
 module.exports.renderTemplate = renderTemplate
 
-module.exports.render = (templateName, vars) => {
-  const template = loadTemplate(templateName)
+module.exports.render = (templateName, vars, secure = true) => {
+  const template = loadTemplate(templateName, secure)
   return renderTemplate(template, vars)
 }
 

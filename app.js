@@ -10,12 +10,11 @@ app.get('/', function (req, res) {
 
   const params = {
     url: req.query.url,
-    template: req.query.template
+    template: req.query.template,
   }
 
-  json2template(params, (err, renderedTemplate) => {
+  json2template(params, true, (err, renderedTemplate) => {
     if (err) {
-      console.log(err)
       return res.status(500).send(err)
     }
 
