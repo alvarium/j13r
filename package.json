@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/alvarium/j13r#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.3",
     "nunjucks": "^3.1.2"
   },
