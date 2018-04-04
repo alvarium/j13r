@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "It renders any json to a specified template.",
   "main": "app.js",
+  "bin": "./cli.js",
   "scripts": {
     "start": "node server.js",
     "test": "NODE_ENV=test node_modules/.bin/jest --verbose"
