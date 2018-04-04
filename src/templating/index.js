@@ -1,20 +1,24 @@
 const fs = require('fs')
 const nunjucks = require('nunjucks')
 
-const baseDir = __dirname + '/../../'
+const baseDir = __dirname + '/../../templates'
 
 const loadTemplate = (templateName) => {
-  const files = fs.readdirSync(baseDir)
+  let templateContents
 
-  let template = ''
+  if (fs.existsSync(templateName)) {
+    templateContents = fs.readFileSync(templateName, 'utf8')
+  }
 
-  files.forEach((file) => {
-    if (file === templateName) {
-      template = fs.readFileSync(baseDir + '/' + file, 'utf8')
-    }
-  })
+  if (!templateContents && fs.existsSync(baseDir + '/' + templateName)) {
+    templateContents = fs.readFileSync(baseDir + '/' + templateName, 'utf8')
+  }
 
-  return template
+  if (!templateContents && fs.existsSync(process.cwd() + '/' + templateName)) {
+    templateContents = fs.readFileSync(process.cwd() + '/' + templateName, 'utf8')
+  }
+
+  return templateContents
 }
 module.exports.loadTemplate = loadTemplate
 

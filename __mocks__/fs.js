@@ -2,8 +2,8 @@ const path = require('path')
 
 const fs = jest.genMockFromModule('fs')
 
-fs.readdirSync = () => {
-  return ['test.json']
+fs.existsSync = () => {
+  return true
 }
 
 fs.readFileSync = () => {
